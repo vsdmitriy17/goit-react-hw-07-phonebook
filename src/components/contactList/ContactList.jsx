@@ -9,7 +9,7 @@ export default function ContactList({ item }) {
     return (
         <ul>
             {isLoading ? (
-                <b>Загружаем контакты</b>
+                <b>Loading...</b>
             ) : (item.map(contact => {
                 return (
                     <li key={contact.id} className={styles.contactList_item}>
