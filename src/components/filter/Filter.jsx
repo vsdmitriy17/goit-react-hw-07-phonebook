@@ -1,7 +1,7 @@
 import styles from './Filter.module.css';
 import PropTypes from 'prop-types';
 
-export default function Filter({filter, onChangeFilter})  {
+export default function Filter({filter, onChange})  {
     return (
         <label className={styles.filter_label}>
             Filter names
@@ -12,7 +12,7 @@ export default function Filter({filter, onChangeFilter})  {
                 title="Enter name"
                 value={filter}
                 className={styles.filter_input}
-                onChange={e => onChangeFilter(e.target.value)}
+                onChange={e => onChange(e.target.value)}
             />
         </label>
     );
@@ -20,5 +20,5 @@ export default function Filter({filter, onChangeFilter})  {
 
 Filter.propTypes = {
     filter: PropTypes.string.isRequired,
-    onChangeFilter: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 }
