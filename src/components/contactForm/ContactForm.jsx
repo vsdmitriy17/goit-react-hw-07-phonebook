@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { nanoid } from "nanoid";
 import styles from './ContactForm.module.css';
 import { useGetContactsQuery } from '../../redux/contactsReducer.js';
 
@@ -7,33 +6,21 @@ export default function ContactForm({ onSubmit }) {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
     const { data: contacts } = useGetContactsQuery();
-    console.log(contacts);
-
-    // const handleSubmit = evt => {
-    //     evt.preventDefault();
-    //     const data = {
-    //         id: nanoid(),
-    //         name,
-    //         number
-    //     }
-    //     onSubmit(data);
-    //     resetForm();
-    // }
 
     const cheakAddContact = name => {
-    const isValidate = contacts.find(item => item.name === name);
-    isValidate && alert(`${name} is already in contacts`);
-    return isValidate;
-  };
+        const isValidate = contacts.find(item => item.name === name);
+        isValidate && alert(`${name} is already in contacts`);
+        return isValidate;
+    };
 
-  const handleSubmut = e => {
-    e.preventDefault();
-    const isValidate = cheakAddContact(name);
-    resetForm();
-    if (isValidate) return;
-    onSubmit({ name, number });
-    resetForm();
-  };
+    const handleSubmut = e => {
+        e.preventDefault();
+        const isValidate = cheakAddContact(name);
+        resetForm();
+        if (isValidate) return;
+        onSubmit({ name, number });
+        resetForm();
+    };
 
     const handleInputChange = evt => {
         switch (evt.currentTarget.name) {

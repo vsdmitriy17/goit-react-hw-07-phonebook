@@ -5,7 +5,7 @@ import { useDeleteContactMutation } from '../../redux/contactsReducer.js';
 
 export default function ContactList({ item }) {
     const { isLoading } = useGetContactsQuery();
-    const [deleteContact, res] = useDeleteContactMutation();
+    const [deleteContact] = useDeleteContactMutation();
     return (
         <ul>
             {isLoading ? (
@@ -23,12 +23,12 @@ export default function ContactList({ item }) {
 };
 
 ContactList.propTypes = {
-  clickDelete: PropTypes.func,
-  item: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      number: PropTypes.string,
-      id: PropTypes.string,
-    })
-  ),
+    clickDelete: PropTypes.func,
+    item: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            number: PropTypes.string,
+            id: PropTypes.string,
+        })
+    ),
 };
